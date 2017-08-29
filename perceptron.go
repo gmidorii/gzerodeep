@@ -26,14 +26,14 @@ func perceptron() {
 }
 
 func points(xmin, xmax, inc float64) plotter.XYs {
-	pts := make(plotter.XYs, 100)
+	size := int64((xmax-xmin)/inc) + 1
+	pts := make(plotter.XYs, size)
 	var counter = 0
 	for i := xmin; i < xmax; i = i + inc {
 		pts[counter].X = i
 		pts[counter].Y = stepFunc(i)
 		counter++
 	}
-
 	return pts
 }
 
